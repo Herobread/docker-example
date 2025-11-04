@@ -2,6 +2,8 @@
 
 install docker/podman for your os
 
+https://podman.io/docs/installation
+
 run this, and it will automatically install and run everything:
 
 ```sh
