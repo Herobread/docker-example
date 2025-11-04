@@ -1,4 +1,5 @@
 Start:
-`make up`
 
-`make down`
+```sh
+podman compose up
+```
