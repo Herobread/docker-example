@@ -8,11 +8,13 @@ services:
     container_name: backend-1
     volumes:
       - ./backend-1:/app
+    env_file:
+      - .env.local
     ports:
-      - "8000:8000"
+      - "${BACK_END_LYNX_PORT}:${BACK_END_LYNX_PORT}"
     environment:
       - PYTHONUNBUFFERED=1
-    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    command: uvicorn app.main:app --host 0.0.0.0 --port ${BACK_END_LYNX_PORT} --reload
 
   frontend:
     build:
@@ -25,6 +27,6 @@ services:
       - ./frontend:/app
       - /app/node_modules
     ports:
-      - "3000:3000"
+      - "${FRONT_END_PORT}:${FRONT_END_PORT}"
     environment:
       - NODE_ENV=development
