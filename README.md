@@ -13,3 +13,16 @@ podman compose up
 each folder has Dockerfile that tells what to install and how to run that folder - container
 
 main `compose.yml` tells how to run those containers and how to combine them
+
+
+---
+
+back and front will be available from those urls
+
+backend link:
+http://localhost:8000/
+
+frontend link:
+http://localhost:3000/
+
+note: ideally, all of this should be in .env to support prod/dev builds
