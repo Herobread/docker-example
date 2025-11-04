@@ -1,7 +1,7 @@
 version: "3.9"
 
 services:
-  backend:
+  backend-1:
     build:
       context: .
       dockerfile: backend-1/Dockerfile
@@ -9,7 +9,7 @@ services:
     volumes:
       - ./backend-1:/app
     env_file:
-      - .env.local
+      - .env
     ports:
       - "${BACK_END_LYNX_PORT}:${BACK_END_LYNX_PORT}"
     environment:
@@ -22,10 +22,12 @@ services:
       dockerfile: frontend/Dockerfile
     container_name: frontend
     depends_on:
-      - backend
+      - backend-1
     volumes:
       - ./frontend:/app
       - /app/node_modules
+    env_file:
+      - .env
     ports:
       - "${FRONT_END_PORT}:${FRONT_END_PORT}"
     environment:
